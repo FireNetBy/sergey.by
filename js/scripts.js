@@ -149,16 +149,15 @@ $(window).on("load", (function () {
         success: "valid",
         submitHandler: function () {
             var json = {
-                "name": $("#cform").find('input[name="name"]').val(),
                 "email": $("#cform").find('input[name="email"]').val(),
-                "message": $("#cform").find('textarea[name="message"]').val()
+                "message": $("#cform").find('textarea[name="message"]').val() + " (" + $("#cform").find('input[name="name"]').val() + ")"
             };
 
             $.ajax({
-                url: "feedback.php",
+                url: "https://formspree.io/f/mnjjvjgv",
                 type: "post",
                 dataType: "json",
-                data: JSON.stringify(json),
+                data: json,
                 beforeSend: function () {
                 },
                 complete: function () {
